@@ -1,16 +1,20 @@
-Write-Host "SourceBranch: $(Build.SourceBranch)"
-Write-Host "SourceBranchName: $(Build.SourceBranchName)"
-Write-Host "SourceVersionMessage: $(Build.SourceVersionMessage)"
+# Write-Host "SourceBranch: $(Build.SourceBranch)"
+# Write-Host "SourceBranchName: $(Build.SourceBranchName)"
+# Write-Host "SourceVersionMessage: $(Build.SourceVersionMessage)"
 
-$env:AZURE_DEVOPS_EXT_PAT = '$(system.Pat)'
 
-$majorVersion = "$(version.Major)"
-$minorVersion = "$(version.Minor)"
-$patchVersion = "$(version.Patch)"
-$buildCounter = "$(Build.BuildId)" 
-$branch = "$(Build.SourceBranch)"
-$pipelineName = "$(Build.DefinitionName)"
+param ($majorVersion, $minorVersion, $patchVersion, $buildCounter, $branch, $pipelineName, $pat)
 
+
+# $majorVersion = "$(version.Major)"
+# $minorVersion = "$(version.Minor)"
+# $patchVersion = "$(version.Patch)"
+# $buildCounter = "$(Build.BuildId)" 
+# $branch = "$(Build.SourceBranch)"
+# $pipelineName = "$(Build.DefinitionName)"
+# $pat = "$(system.Pat)"
+
+$env:AZURE_DEVOPS_EXT_PAT = $pat
 $cmd = "git log --pretty=format:""%s"" -1"
 $commitMessage = Invoke-Expression $cmd
 $commitMessage = $commitMessage.ToLower()
