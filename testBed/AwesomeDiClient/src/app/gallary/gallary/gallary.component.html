@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div style="width:100%;height:500px" class="center-container" *ngIf="loading">
+        <!-- <mat-spinner diameter="100" style="margin: 0 auto;"></mat-spinner> -->
+        <fa-icon [icon]="faSpinnerIcon" [spin]="true" style="margin: 0 auto; font-size: 50px;"></fa-icon>
+    </div>
+    <div *ngIf="!loading">
+        <div class="search-results" infiniteScroll [infiniteScrollDistance]="3" [infiniteScrollThrottle]="500" (scrolled)="onScroll()" [infiniteScrollUpDistance]="1" (scrolledUp)="scrolledUp()">
+            <!-- <div class="search-results"> -->
+            <div class="row" *ngFor="let fileGroup of fileGroupList | keyvalue:keyDescOrder">
+                <div class="col-12 date-heading">{{fileGroup.key}}<span id="groupEl{{fileGroup.key}}"></span></div>
+                <div *ngFor="let file of fileGroup.value" [style.width.px]="photoSize" style="float:left; padding-left:1px; padding-right:1px">
+                    <a data-fancybox="gallery" [href]="apiEndPoint+'file/'+ file.id +'/token?type=img&token='+ accessToken" *ngIf="getFileType(file) == fileTypes.image">
+                        <!-- <img defaultImage=".\assets\images\loading.gif" lazyLoad="{{apiEndPoint}}file/{{file.id}}/thumbnail" errorImage=".\assets\images\errorFile.png" (click)="openModal(file,fileGroup)" height=" {{photoSize}}" width="{{photoSize}}" class="img-responsive" border="0" /> -->
+                        <img defaultImage=".\assets\images\loading.gif" lazyLoad="{{apiEndPoint}}file/{{file.id}}/thumbnail" errorImage=".\assets\images\errorFile.png" height=" {{photoSize}}" width="{{photoSize}}" class="img-responsive" border="0" />
+                    </a>
+                    <a data-fancybox="gallery" [href]="'#video'+file.id" *ngIf="getFileType(file) == fileTypes.video">
+                        <img defaultImage=".\assets\images\loading.gif" lazyLoad="{{apiEndPoint}}file/{{file.id}}/thumbnail" errorImage=".\assets\images\errorFile.png" height=" {{photoSize}}" width="{{photoSize}}" class="img-responsive" border="0" />
+                    </a>
+                    <video [width]="getFileWithAndHeight(file).width" [height]="getFileWithAndHeight(file).height" controls preload="none" [id]="'video'+file.id" style="display:none;" *ngIf="getFileType(file) == fileTypes.video" poster="{{apiEndPoint}}file/{{file.id}}/thumbnail/token?token={{accessToken}}&fullSizeThumb=true">
+                        <source [src]="apiEndPoint+'file/'+ file.id +'/token?type=video&token='+ accessToken" />
+                        Your browser doesn't support HTML5 video tag.
+                    </video>
+                </div>
+            </div>
+            <div style="height:10px"></div>
+            <div *ngIf="loading || onScrollLoading" style="text-align: center;padding-top:10px;height:50px">
+                <fa-icon [icon]="faSpinnerIcon" [spin]="true"></fa-icon> Loading
+            </div>
+            <div *ngIf="!loading && !onScrollLoading">
+                <di-mat-button [loading]="loading" text="Load more" (clicked)="onScroll()"></di-mat-button>
+            </div>
+        </div>
+    </div>
+    <ng-floating-action-menu placement="br" effect="mfb-zoomin" label="Actions" iconClass="fas fa-plus" activeIconClass="fas fa-times" toggle="click" [buttons]="buttons">
+    </ng-floating-action-menu>
+</div>

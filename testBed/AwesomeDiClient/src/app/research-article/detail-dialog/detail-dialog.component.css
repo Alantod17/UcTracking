@@ -1,0 +1,7 @@
+form,.mat-form-field{
+    width: 100%;
+}
+
+mat-form-field textarea{
+    min-height: 100px;
+}

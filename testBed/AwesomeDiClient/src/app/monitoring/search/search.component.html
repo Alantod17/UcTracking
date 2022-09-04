@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <div class="row justify-content-between" style="margin-top:15px">
+        <div class="col">
+            <di-mat-date-time-picker [label]="'Start date time'" [(value)]="startDateTime"></di-mat-date-time-picker>
+        </div>
+        <div class="col ">
+            <di-mat-date-time-picker [label]="'End date time'" [(value)]="endDateTime"></di-mat-date-time-picker>
+        </div>
+        <div class="col">            
+            <mat-form-field appearance="fill">
+                <mat-label>Tracking id</mat-label>
+                <input matInput placeholder="" [(ngModel)]="trackingId">
+            </mat-form-field>
+        </div>
+        <div class="col">   
+            <di-mat-button [loading]="loading" color="primary" text="Search" (clicked)="search()"></di-mat-button>
+        </div>
+    </div>
+        <div class="tab-container">
+            <div class="loading-shade" *ngIf="loading">
+                <mat-spinner *ngIf="loading"></mat-spinner>
+            </div>
+            <div class="table-container">
+                <table mat-table [dataSource]="dataSource" matSort>
+                    <ng-container matColumnDef="trackingId" sticky>
+                        <th mat-header-cell *matHeaderCellDef> Tracking Id </th>
+                        <td mat-cell *matCellDef="let row"> {{row.trackingId}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="startDateTime">
+                        <th mat-header-cell *matHeaderCellDef> Start </th>
+                        <td mat-cell *matCellDef="let row"> {{row.startDateTime}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="endDateTime">
+                        <th mat-header-cell *matHeaderCellDef> End </th>
+                        <td mat-cell *matCellDef="let row"> {{row.endDateTime}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="actions">
+                        <th mat-header-cell *matHeaderCellDef></th>
+                        <td mat-cell *matCellDef="let row">
+                            <button color="Primary" mat-button (click)="view(row)">View</button>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">No data matching the filter</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    
+</div>

@@ -1,0 +1,74 @@
+<div *ngIf="!loading">
+    <h2 mat-dialog-title>{{article.title}}</h2>
+    <mat-dialog-content class="mat-typography" [style.height.px]="dialogHeight">
+        <ng-scrollbar visibility="hover">
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            ({{article.year}}) {{article.author}}
+                        </mat-panel-title>
+                        <mat-panel-description>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <p>{{article.abstract}}</p>
+                </mat-expansion-panel>
+            </mat-accordion>
+            <div style="height:20px">
+            </div>
+            <form>
+                <!-- <mat-form-field>
+                    <mat-label>Research Goal</mat-label>
+                    <input matInput name="researchGoal" [(ngModel)]="article.researchGoal" />
+                </mat-form-field> -->
+                <mat-form-field>
+                    <mat-label>Research Problem</mat-label>
+                    <textarea matInput name="researchQuestions" [(ngModel)]="article.researchQuestions"></textarea>
+                </mat-form-field>
+                <di-mat-chip [(datalist)]="article.researchMethodList" [allDataList]="infoList.researchMethodList" label="Research Method"></di-mat-chip>
+                <di-mat-chip [(datalist)]="article.researchDataSourceList" [allDataList]="infoList.researchDataSourceList" label="Data Source"></di-mat-chip>
+                <di-mat-chip [(datalist)]="article.researchContextList" [allDataList]="infoList.researchContextList" label="Research Context"></di-mat-chip>
+                <di-mat-chip [(datalist)]="article.researchedProblemTypeList" [allDataList]="infoList.researchedProblemTypeList" label="Researched Problem Type"></di-mat-chip>
+                <di-mat-chip [(datalist)]="article.researchPlatformList" [allDataList]="infoList.researchPlatformList" label="Target of study"></di-mat-chip>
+                <di-mat-chip [(datalist)]="article.researchedTechnologyList" [allDataList]="infoList.researchedTechnologyList" label="Researched Technology"></di-mat-chip>
+                <di-mat-chip [(datalist)]="article.researchedApproachList" [allDataList]="infoList.researchedApproachList" label="Researched Approach"></di-mat-chip>
+                <mat-form-field>
+                    <mat-label>Main Findings</mat-label>
+                    <textarea matInput name="researchMainFindings" [(ngModel)]="article.researchMainFindings"></textarea>
+                </mat-form-field>
+                <di-mat-chip [(datalist)]="article.researchContributionTypeList" [allDataList]="infoList.researchContributionTypeList" label="Contribution Type"></di-mat-chip>
+                <mat-form-field>
+                    <mat-label>Future Works</mat-label>
+                    <textarea matInput name="researchFutureWorks" [(ngModel)]="article.researchFutureWorks"></textarea>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Challenges</mat-label>
+                    <textarea matInput name="researchChallenges" [(ngModel)]="article.researchChallenges"></textarea>
+                </mat-form-field>
+                <di-mat-chip [(datalist)]="article.researchBugRootCauseList" [allDataList]="infoList.researchBugRootCauseList" label="Bug Root Cause"></di-mat-chip>
+                <mat-form-field>
+                    <mat-label>Extra notes</mat-label>
+                    <textarea matInput name="notes" [(ngModel)]="article.notes" style="min-height: 100px;"></textarea>
+                </mat-form-field>
+            </form>
+        </ng-scrollbar>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <div class="row  justify-content-between" style="width:100%">
+            <div class="col">
+                <a mat-button href="{{article.link}}" target="_blank">Full paper</a>
+                <!-- <button color="warn" mat-dialog-close mat-button (click)="delete(article)">{{article.isDeleted?"Un-delete":"Delete"}}</button> -->
+                <!-- <button color="primary" mat-button (click)="save(article)">Review later</button> -->
+            </div>
+            <div class="col ">
+            </div>
+            <div class="col" style="text-align:right">
+                <button color="primary" mat-button (click)="save(article)">Save</button>
+                <button mat-button mat-dialog-close>Cancel</button>
+            </div>
+        </div>
+    </mat-dialog-actions>
+</div>
+<div class="loading-shade" *ngIf="loading">
+    <mat-spinner *ngIf="loading"></mat-spinner>
+</div>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\DiWan\Desktop\AwesomeDi.Api</_PublishTargetUrl>
+    <History>True|2022-03-01T10:19:59.8735495Z;True|2022-02-10T22:52:56.4546362+13:00;False|2022-02-10T22:52:32.9962068+13:00;True|2021-11-10T23:41:07.4414298+13:00;True|2021-11-09T23:30:10.0355789+13:00;True|2021-11-06T07:59:33.9092773+13:00;True|2021-11-05T21:03:13.7045575+13:00;True|2021-11-04T18:38:31.3279860+13:00;True|2021-11-04T15:45:15.1537999+13:00;True|2021-06-30T22:03:56.1115893+12:00;True|2021-06-30T19:47:51.6541034+12:00;True|2021-06-29T22:37:47.3140842+12:00;True|2021-06-07T16:06:17.9564870+12:00;True|2021-05-30T21:30:02.4759549+12:00;</History>
+  </PropertyGroup>
+</Project>

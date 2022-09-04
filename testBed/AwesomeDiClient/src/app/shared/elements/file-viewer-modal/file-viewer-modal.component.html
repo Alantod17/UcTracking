@@ -1,0 +1,57 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">{{title}}</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body" style="padding:0">
+    <div style="width: 90vw; height: 90vh;max-width: 300px;max-height: 300px; padding-top: 50px; margin:0 auto" class="row" [hidden]="!loading">
+        <div class="col"></div>
+        <div class="col-6" style="text-align: center;">
+            <!-- <fa-icon [icon]="faSpinnerIcon" [spin]="true" style="font-size: 80px;"></fa-icon>
+            <div>loading</div> -->
+            <img src=".\assets\images\loading.gif" width="100%">
+            <div>loading</div>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div [hidden]="loading" class="outer-wrapper">
+        <div style="text-align: center;vertical-align: middle;justify-content: center; align-items: center; " [style.Height.px]="modalHeight" class="frame">
+            <img *ngIf="fileSafeUrl" [hidden]="loading || fileType != fileTypes.image" [src]="fileSafeUrl" [attr.width]="fileWidth" [attr.height]="fileHeight" (load)="imageLoaded()" style="margin: o auto" />
+            <!-- <img [hidden]="loading || fileType != fileTypes.image" [attr.width]="fileWidth" [attr.height]="fileHeight" defaultImage=".\assets\images\loading.gif" [lazyLoad]="fileSafeUrl==null?'':fileSafeUrl" errorImage=".\assets\images\errorFile.png" /> -->
+            <!-- <img [hidden]="loading || fileType != fileTypes.image" [attr.width]="fileWidth" [attr.height]="fileHeight" defaultImage=".\assets\images\loading.gif" lazyLoad="{{apiEndPoint}}file/{{data.fileEntry.id}}" errorImage=".\assets\images\errorFile.png" /> -->
+            <video *ngIf="fileSafeUrl" [hidden]="loading || fileType != fileTypes.video" [attr.width]="fileWidth" [attr.height]="fileHeight" controls #videoPlayer>
+                <source [src]="fileSafeUrl" />
+                Browser not supported
+            </video>
+        </div>
+    </div>
+    <div *ngIf="openImageViewer" class="viewer-container">
+        <div class="viewer-content">
+            <a class="close-viewer btn btn-default close-button" style="float: right; color:white" (click)="openImageViewer = false">
+                <fa-icon [icon]="faTimes"></fa-icon> Close
+            </a>
+            <img class="main-img" [src]="fileSafeUrl" />
+        </div>
+    </div>
+</div>
+<div class="modal-footer" style="justify-content: space-between;">
+    <div>
+        <button mat-stroked-button (click)="bsModalRef.hide()" color="primary" style="padding-left: 0;padding-right: 0;">
+            <fa-icon [icon]="faTimes"></fa-icon> Close
+        </button>
+    </div>
+    <div>
+        <button mat-stroked-button (click)="lastFileClicked()" color="primary">
+            <fa-icon [icon]="faAngleLeft"></fa-icon>
+        </button>
+        <button mat-stroked-button (click)="viewInNewTab()" color="primary">
+            <fa-icon [icon]="faExpand"></fa-icon>
+        </button>
+        <!-- <button mat-stroked-button color="primary" [mat-dialog-close]="true" (click)="closeDialog()" cdkFocusInitial style="margin-left:15px">Ok</button> -->
+        <button mat-stroked-button (click)="nextFileClicked()" color="primary">
+            <fa-icon [icon]="faAngleRight"></fa-icon>
+        </button>
+    </div>
+    <!-- <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">{{closeBtnName}}</button> -->
+</div>

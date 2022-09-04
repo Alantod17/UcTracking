@@ -1,0 +1,93 @@
+<div class="container-fluid">
+    <div class="row justify-content-between" style="margin-top:15px">
+        <div class="col">
+            <button mat-icon-button (click)="isFilterVisiable = !isFilterVisiable">
+                <mat-icon>filter_alt</mat-icon>
+            </button>
+        </div>
+        <div class="col ">
+        </div>
+        <div class="col" style="text-align:right">
+            <mat-button-toggle-group appearance="legacy" [(ngModel)]="viewType" aria-label="Font Style">
+                <mat-button-toggle value="List"><i class="fas fa-list"></i></mat-button-toggle>
+                <mat-button-toggle value="Card"><i class="fas fa-th"></i></mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+    </div>
+    <div class="row" style="padding: 0px 30px" *animIf="isFilterVisiable; info: { startAnim: 'fadeIn', endAnim: 'fadeOut', time: 300 }">
+        <div class="col-sm-12 col-lg-6">
+            <mat-form-field style="width:100%">
+                <mat-label>Title filter</mat-label>
+                <input matInput placeholder="Title" [ngModel]="keywords" (ngModelChange)="keywordsChanged($event)" #titleFilter [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+        </div>
+        <div class="col-sm-12 col-lg-3">
+            <di-boolean-toggle [value]="isDeleted" (valueChange)="isDeletedChanged($event)" trueText="Deleted" falseText="Not deleted" nullText="All"></di-boolean-toggle>
+        </div>
+        <div class="col-sm-12 col-lg-3">
+            <di-boolean-toggle [value]="isNeedReview" (valueChange)="isNeedReviewChanged($event)" trueText="Need Review" nullText="All"></di-boolean-toggle>
+        </div>
+    </div>
+    <div [hidden]="viewType != 'Card'" class="row" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="500" (scrolled)="onScroll()" [infiniteScrollUpDistance]="1" (scrolledUp)="scrolledUp()">
+        <div *ngFor="let articale of articaleList; trackBy: trackItem" class="col-sm-12 col-md-6 col-xl-4">
+            <mat-card class="card">
+                <mat-card-header style="height:125px; margin:0 -15px">
+                    <mat-card-title>{{articale.title}}</mat-card-title>
+                    <mat-card-subtitle>{{articale.year}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="col-12" style="height:200px;">
+                        <ng-scrollbar visibility="hover">
+                            {{articale.abstract}}
+                        </ng-scrollbar>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions>
+                    <div class="row justify-content-between">
+                        <div class="col-4">
+                            <button color="Basic" mat-button (click)="viewDetail(articale)">Detail</button>
+                        </div>
+                        <div class="col-8" style="text-align:right">
+                            <button color="Primary" mat-button (click)="needReview(articale)">{{articale.isNeedReview?"Donot review":"Review later"}}</button>
+                            <button color="warn" mat-button (click)="delete(articale)">{{articale.isDeleted?"Un-delete":"Delete"}}</button>
+                        </div>
+                    </div>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+    <div [hidden]="viewType != 'List'">
+        <div class="tab-container">
+            <div class="loading-shade" *ngIf="isLoadingResults">
+                <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+            </div>
+            <div class="table-container">
+                <table mat-table [dataSource]="dataSource" matSort>
+                    <ng-container matColumnDef="title" sticky>
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+                        <td mat-cell *matCellDef="let row" (click)="viewDetail(row)"> {{row.title}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="year">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Year </th>
+                        <td mat-cell *matCellDef="let row"> {{row.year}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="actions">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+                        <td mat-cell *matCellDef="let row">
+                            <button color="Primary" mat-button (click)="needReview(row)">{{row.isNeedReview?"Donot review":"Review later"}}</button>
+                            <button color="warn" mat-button (click)="delete(row)">{{row.isDeleted?"Un-delete":"Delete"}}</button>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                    <!-- Row shown when there is no matching data. -->
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">No data matching the filter</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <mat-paginator [length]="resultsLength" [pageSizeOptions]="[20, 50, 100, 200]"></mat-paginator>
+    </div>
+</div>

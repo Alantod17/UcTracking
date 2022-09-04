@@ -1,0 +1,13 @@
+<div *ngFor="let file of fileList; let i = index">
+
+    <a data-fancybox="gallery" [href]="file.fileSafeUrl" [hidden]="i!=0" *ngIf="file.fileType == fileTypes.image">
+        as
+        <!-- <img defaultImage=".\assets\images\loading.gif" lazyLoad="{{apiEndPoint}}file/{{file.id}}/thumbnail" errorImage=".\assets\images\errorFile.png" /> -->
+    </a>
+    <a data-fancybox="gallery" [href]="'#video'+file.id" *ngIf="file.fileType == fileTypes.video">
+    </a>
+    <video width="640" height="320" controls [id]="'video'+file.id" style="display:none;" *ngIf="file.fileType == fileTypes.video">
+        <source [src]="file.fileSafeUrl" />
+        Your browser doesn't support HTML5 video tag.
+    </video>
+</div>
