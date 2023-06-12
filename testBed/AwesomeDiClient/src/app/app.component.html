@@ -1,0 +1,81 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!-- <div style="text-align:center"> -->
+<!-- <div> -->
+<div *ngIf="hasUpdates"><button type="button" class="btn btn-outline-success btn-lg btn-block" (click)="reload()">A
+        new version is available, click here to load</button></div>
+<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
+    <a class="navbar-brand" mat-button routerLink="" (click)="isCollapsed = true">
+        <!-- <img src="/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">  -->
+        Awesome Di
+    </a>
+    <button mat-button type="button" class="navbar-toggler" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" [collapse]="isCollapsed">
+        <div class="row justify-content-between" style="width:100%">
+            <div class="col">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a mat-button routerLink="/gallary" class="nav-link" (click)="isCollapsed = true">
+                            Photos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a mat-button routerLink="/research-article" class="nav-link" (click)="isCollapsed = true">
+                            Research articles
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a mat-button routerLink="/monitoring" class="nav-link" (click)="isCollapsed = true">
+                            Monitoring
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a mat-button routerLink="/sharesies" class="nav-link" (click)="isCollapsed = true">
+                            Sharesies
+                        </a>
+                    </li>
+                    <!-- <li class="nav-item dropdown" dropdown triggers="hover" >
+                            <a mat-button dropdownToggle routerLink="/expense" class="nav-link dropdown-toggle">
+                                Expense
+                            </a>
+                            <div *dropdownMenu class="dropdown-menu">
+                                <a class="dropdown-item" routerLink="/expense/import" href="#">Import</a>
+                            </div>
+                        </li> -->
+                </ul>
+            </div>
+            <div class="col ">
+            </div>
+            <div class="col" style="text-align:right">
+                <button *ngIf="email == null" routerLink="/home/login" mat-button class="my-2 my-lg-0" color="primary">Login</button>
+                <div *ngIf="email != null" class="my-2 my-lg-0 dropdown" dropdown triggers="hover">
+                    <button mat-button dropdownToggle class="nav-link dropdown-toggle" (click)="test()" color="primary">Hello {{email}}</button>
+                    <div *dropdownMenu class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" (click)="logout()">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form> -->
+
+
+
+        <!-- <a routerLink="/login" class="btn btn-outline-success my-2 my-lg-0">Login</a> -->
+    </div>
+</nav>
+
+
+<main [@switchAnimation]="o.isActivated ? o.activatedRoute : ''">
+
+    <router-outlet #o="outlet"></router-outlet>
+</main>
+
+<!-- <router-outlet></router-outlet> -->

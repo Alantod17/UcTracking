@@ -1,0 +1,74 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url("https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css");
+.thumb{
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+.thumbnail {
+    display: block;
+    padding: 1px;
+    margin-bottom: 0px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+}
+
+
+.thumbnail a>img, .thumbnail>img {
+    margin-right: auto;
+    margin-left: auto;
+}
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.multi-line-snackbar{
+    white-space: pre-wrap
+}
+
+.mat-form-field-flex{
+    background-color: #0000000a !important;
+}
+table {
+  width: 100%;
+}
+thead{
+  z-index: 20000;
+}
+
+.table-container {
+  position: relative;
+  min-height: 200px;
+}
+
+.table-container {
+  position: relative;
+  overflow: auto;
+}
+
+
+.loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .cdk-overlay-pane{
+    margin-top:30px !important;
+} */

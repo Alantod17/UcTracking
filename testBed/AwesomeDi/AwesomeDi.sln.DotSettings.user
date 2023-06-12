@@ -1,0 +1,32 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=90f06f32_002D8a18_002D4fc0_002Daf2a_002D26ee74664d1a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Session" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::07D1B0A3-CE17-46D2-9C1C-57212572A23C::net5.0::AwesomeDi.UnitTest.BibTexTests.Test2&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::07D1B0A3-CE17-46D2-9C1C-57212572A23C::net5.0::AwesomeDi.UnitTest.HelperStringTests.Decrypt&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::07D1B0A3-CE17-46D2-9C1C-57212572A23C::net5.0::AwesomeDi.UnitTest.ResearchArticalTests.Test&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::07D1B0A3-CE17-46D2-9C1C-57212572A23C::net5.0::AwesomeDi.UnitTest.YoutubeTests.Download&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::07D1B0A3-CE17-46D2-9C1C-57212572A23C::net5.0::AwesomeDi.UnitTest.YoutubeTests.GetPlayList&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::07D1B0A3-CE17-46D2-9C1C-57212572A23C::net5.0::AwesomeDi.UnitTest.YoutubeTests.DownloadPlayList&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::07D1B0A3-CE17-46D2-9C1C-57212572A23C::net5.0::AwesomeDi.UnitTest.YoutubeTests.GetChannel&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::07D1B0A3-CE17-46D2-9C1C-57212572A23C::net5.0::AwesomeDi.UnitTest.YoutubeTests.DownloadChannel&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::07D1B0A3-CE17-46D2-9C1C-57212572A23C::net5.0::AwesomeDi.UnitTest.YoutubeTests.DownloadVideo&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::07D1B0A3-CE17-46D2-9C1C-57212572A23C::net5.0::AwesomeDi.UnitTest.ResearchArticalTests.Test1&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::07D1B0A3-CE17-46D2-9C1C-57212572A23C::net5.0::AwesomeDi.UnitTest.ResearchArticalTests.researchMethodList_researchProblemList&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::07D1B0A3-CE17-46D2-9C1C-57212572A23C::net5.0::AwesomeDi.UnitTest.ResearchArticalTests.GetRef&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::07D1B0A3-CE17-46D2-9C1C-57212572A23C::net5.0::AwesomeDi.UnitTest.ResearchArticalTests.MoveDoiToKey&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::07D1B0A3-CE17-46D2-9C1C-57212572A23C::net5.0::AwesomeDi.UnitTest.ResearchArticalTests.CombineRefer&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::07D1B0A3-CE17-46D2-9C1C-57212572A23C::net5.0::AwesomeDi.UnitTest.ResearchArticalTests.PaperList&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ec1196f2_002D51b9_002D493b_002Da3ba_002De43fb0655c41/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetThumbnailImageTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::07D1B0A3-CE17-46D2-9C1C-57212572A23C::net5.0::AwesomeDi.UnitTest.ImageTests.GetThumbnailImageTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::07D1B0A3-CE17-46D2-9C1C-57212572A23C::net5.0::AwesomeDi.UnitTest.VideoTests.GetThumbnailImageTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::07D1B0A3-CE17-46D2-9C1C-57212572A23C::net5.0::AwesomeDi.UnitTest.YahooFinanceTests.GetThumbnailImageTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::07D1B0A3-CE17-46D2-9C1C-57212572A23C::net5.0::AwesomeDi.UnitTest.YahooFinanceTests.GetHistoricalAsync&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::07D1B0A3-CE17-46D2-9C1C-57212572A23C::net5.0::AwesomeDi.UnitTest.YahooFinanceTests.GetDividendsAsync&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::07D1B0A3-CE17-46D2-9C1C-57212572A23C::net5.0::AwesomeDi.UnitTest.YahooFinanceTests.GetSplitsAsync&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::07D1B0A3-CE17-46D2-9C1C-57212572A23C::net5.0::AwesomeDi.UnitTest.YahooFinanceTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::07D1B0A3-CE17-46D2-9C1C-57212572A23C::net5.0::AwesomeDi.UnitTest.BibTexTests.Test1&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

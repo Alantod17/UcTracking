@@ -1,0 +1,5 @@
+<mat-button-toggle-group [(ngModel)]="selectedValue" aria-label="Font Style" [value]="selectedValue">
+    <mat-button-toggle value="true">{{trueText}}</mat-button-toggle>
+    <mat-button-toggle value="false" [hidden]="hideFalse">{{falseText}}</mat-button-toggle>
+    <mat-button-toggle value="null" [hidden]="hideNull">{{nullText}}</mat-button-toggle>
+</mat-button-toggle-group>

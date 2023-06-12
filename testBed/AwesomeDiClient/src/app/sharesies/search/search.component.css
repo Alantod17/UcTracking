@@ -1,0 +1,11 @@
+  .mat-column-exchangeCountry,.mat-column-lastPrice,
+  .mat-column-dayChangePercent,.mat-column-dayChangePercent,.mat-column-threeDayChangePercent,
+  .mat-column-weekChangePercent,.mat-column-twoWeekChangePercent,.mat-column-monthChangePercent,
+  .mat-column-twoMonthChangePercent,.mat-column-threeMonthChangePercent,.mat-column-sixMonthChangePercent,.mat-column-yearChangePercent
+  {
+    width: 100px;
+  }
+  
+  .filter-field{
+    width: 100%;
+  }

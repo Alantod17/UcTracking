@@ -1,0 +1,11 @@
+.left-side {
+    text-align: right;
+    border-right: 1px solid black;
+}
+
+.right-side {
+    text-align: left;
+    border-left: 1px solid black;
+    white-space: nowrap;
+    display: block
+}

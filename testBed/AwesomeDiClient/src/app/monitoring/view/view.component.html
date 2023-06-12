@@ -1,0 +1,24 @@
+<div class="loading-shade" *ngIf="loading">
+    <mat-spinner *ngIf="loading"></mat-spinner>
+</div>
+<div class="row"*ngFor="let value of dataSource; index as i; first as isFirst">
+    <div class="col-6 left-side">
+        <div *ngIf="value.type == 'Ui'"> 
+            <div>
+                {{getUiTitle(value.dataDetail)}} - {{value.type}} - <a href="javascript:void(0)" (click)="showDetail(value)">{{value.dateTime}}</a>
+            </div>
+            <div>
+                <img attr.id="canvas-{{i}}" [src]="myDrawingFunction(i, value)" style="height:150px" (click)="showImage(value)"/>
+            </div>
+        </div>
+    </div>
+    <div class="col-6  right-side">
+        <div *ngIf="value.type == 'Request'">
+            <span><a href="javascript:void(0)"  (click)="showDetail(value)">{{value.dateTime}}</a> - {{value.type}} - {{getRequestTitle(value.dataDetail)}}</span>
+        </div>
+        <div *ngIf="value.type == 'Event'">
+            <span><a href="javascript:void(0)"  (click)="showDetail(value)">{{value.dateTime}}</a> - {{value.type}} - {{getEventTitle(value.dataDetail)}}</span>
+        </div>
+
+    </div>
+</div>
