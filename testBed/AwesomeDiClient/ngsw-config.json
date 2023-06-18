@@ -5,7 +5,7 @@
     {
       "name": "api-performance",
       "urls": [
-        "https://cloud.awesomedi.com/api/file/**"
+        "https://XXX.awesomedi.com/api/file/**"
       ],
       "cacheConfig": {
         "strategy": "performance",
